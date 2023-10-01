@@ -1,0 +1,48 @@
+<!-- main.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will Readed</title>
+    <link  href="{{ url_for('static', filename='iconsix.png') }}" type="image/png" sizes="16x16" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <h1 class="navbar-title">Book Recommender System</h1>
+        </div>
+         <div class="navbar-menu">
+            <a href="{{ url_for('main_page') }}" class="logout-button">Main Page</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+
+        </div>
+    </nav>
+    <div class="container">
+
+        <h2>Will Read Books:</h2>
+        <div class="card-container">
+    {% for book in books %}
+    <div class="card">
+      <div class="card-image">
+        <img src="{{ book.image }}" alt="Book Image">
+      </div>
+      <div class="card-content">
+        <h3>{{ book.title }}</h3>
+          <br>
+        <h4> Author : {{ book.author }}</h4>
+
+          <h5>Publisher : {{ book.publisher }}</h5>
+          <br>
+
+          <p>Rating : {{ book.rating }}</p>
+          <button><a href="{{book.link}}">Info/Buy</a></button>
+          <br>
+
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+    </div>
+</body>
+</html>

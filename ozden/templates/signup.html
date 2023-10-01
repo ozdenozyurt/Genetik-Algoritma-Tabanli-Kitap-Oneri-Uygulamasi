@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='auth.css') }}">
+    <link  href="{{ url_for('static', filename='iconsix.png') }}" type="image/png" sizes="16x16" rel="icon">
+
+</head>
+<body style="background-image: url('/static/bg.jpg') ">
+ <div class="container">
+    <div class="card">
+      <h2>Sign Up</h2>
+        <form method="POST" action="{{ url_for('signup') }}">
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            {% if success %}
+                <p class="success">{{ success }}</p>
+            {% endif %}
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <div class="signup-login-links">
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
